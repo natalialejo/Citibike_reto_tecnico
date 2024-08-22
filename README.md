@@ -25,8 +25,9 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 
 ### 2. Análisis exploratorio
 
-1. Métricas de uso de un día promedio: 
-    * Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
+- Métricas de uso de un día promedio: 
+
+* Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
 
 ``` sql
 WITH daily_trip_counts AS (
@@ -45,7 +46,7 @@ SELECT
 FROM 
   daily_trip_counts; ---32,986.78
 ```
-    * Calcular medidas de tendencia central respecto a la duración de un viaje: Se decide tratar los  datos outliers de la variable *tripduration*, considerando solo los datos dentro de 24 horas (1440 minutos), ya que el objetivo es analizar la duración de un viaje en un día promedio. 
+* Calcular medidas de tendencia central respecto a la duración de un viaje: Se decide tratar los  datos outliers de la variable *tripduration*, considerando solo los datos dentro de 24 horas (1440 minutos), ya que el objetivo es analizar la duración de un viaje en un día promedio. 
 
 ``` sql
 SELECT
@@ -61,8 +62,9 @@ WHERE
 ```
 ![Texto alternativo](images/mtc_trip.png?raw=true)
 
-2. * Métricas históricas:
-    a.** Total de viajes: Filtrando los datos nulos de la variable *starttime* y *stoptime* se obtienen 53,108,721 viajes 
+- Métricas históricas:
+
+* Total de viajes: Filtrando los datos nulos de la variable *starttime* y *stoptime* se obtienen 53,108,721 viajes 
 
 ``` sql
 SELECT
@@ -73,7 +75,7 @@ WHERE
    starttime IS NOT NULL
    AND stoptime IS NOT NULL;
 ```
-    b.** Total de viajes por usuarios, según género, edad y/o tipo de subscripción: 
+*  Total de viajes por usuarios, según género, edad y/o tipo de subscripción: 
 
 ``` sql
     # total trips by gender #
@@ -146,7 +148,9 @@ Se obtiene como resultado estas tablas:
 
 ![Texto alternativo](images/age_range.png?raw=true)
 
-    c.** Crecimiento del número de viajes diarios a lo largo del tiempo: para este calculo se crean tres tablas temporables mediante `WITH`, en la primera se grupan los datos por fecha (*trip_date*) y calcula el número total de viajes (*daily_trips*) para cada día. Seguido, en la siguiente tabla temporal, utilizando la funcion `LAG` se obtiene el número de viajes del día anterior y en la tercera se calcula la tasa de crecimiento anual de los viajees, crean las variables que contiene el año (*year*), el número total de viajes anuales (*total_viajes_anuales*), el número de viajes del año anterior (*previous_year_trips*), y la tasa de crecimiento anual (*annual_growth_rate*).  Finalmente se combinan para producir la vista final. Esta tabla será utilizada para visualizar el comportamiento mediante gráficos.
+-  Crecimiento del número de viajes diarios a lo largo del tiempo: 
+
+Para este calculo se crean tres tablas temporables mediante `WITH`, en la primera se grupan los datos por fecha (*trip_date*) y calcula el número total de viajes (*daily_trips*) para cada día. Seguido, en la siguiente tabla temporal, utilizando la funcion `LAG` se obtiene el número de viajes del día anterior y en la tercera se calcula la tasa de crecimiento anual de los viajees, crean las variables que contiene el año (*year*), el número total de viajes anuales (*total_viajes_anuales*), el número de viajes del año anterior (*previous_year_trips*), y la tasa de crecimiento anual (*annual_growth_rate*).  Finalmente se combinan para producir la vista final. Esta tabla será utilizada para visualizar el comportamiento mediante gráficos.
 
 ``` sql
 
@@ -214,8 +218,9 @@ LEFT JOIN
 ORDER BY
   d.trip_date;
 ```
-3. * Medidas adicionales:
-    a.* se identifican los top 5 de estaciones donde es más popular inicar y finalizar los viajes:
+-  Medidas adicionales:
+
+* Se identifican las estaciones donde es más popular inicar y finalizar los viajes:
 
 ``` sql
 SELECT 
@@ -236,7 +241,7 @@ ORDER BY
 - Se conectan las tablas creadas con las variables de interés para la presentación.
 - Gráficos: se utilizan scorecards, gráficos de barra, de pastel, tablas y gráficos de linea.
 
-#### Vista de dasboard: reto_técnico_Citibike
+##### Vista de dasboard: reto_técnico_Citibike
 
 ![Texto alternativo](images/dashboard.png?raw=true)
 
