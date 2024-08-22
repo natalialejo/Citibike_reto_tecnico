@@ -20,7 +20,7 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 - La variable *tripduration* se encuentra en segundos, es necesario convertirla a minutos.
 - La variable *tripduration* y *age* contiene datos outliers.
 
- ![Texto alternativo](img/estado_datos.png?raw=true)
+ ![Texto alternativo](images/estado_datos.png?raw=true)
 
 ### 2. Análisis exploratorio.
 
@@ -58,7 +58,7 @@ WHERE
    tripduration IS NOT NULL 
    AND tripduration / 60 <= 1440; -- Excluye viajes con duración mayor a 24 horas (outliers)
 ```
-![Texto alternativo](img/mtc_trip.png?raw=true)
+![Texto alternativo](images/mtc_trip.png?raw=true)
 
 2. * Métricas históricas:
     a.** Total de viajes: Filtrando los datos nulos de la variable *starttime* y *stoptime* se obtienen 53,108,721 viajes 
@@ -143,7 +143,7 @@ WHERE
 ```
 Se obtiene como resultado estas tablas:
 
-![Texto alternativo](img/age_range.png?raw=true)
+![Texto alternativo](images/age_range.png?raw=true)
 
     c.** Crecimiento del número de viajes diarios a lo largo del tiempo: para este calculo se crean tres tablas temporables mediante `WITH`, en la primera se grupan los datos por fecha (*trip_date*) y calcula el número total de viajes (*daily_trips*) para cada día. Seguido, en la siguiente tabla temporal, utilizando la funcion `LAG` se obtiene el número de viajes del día anterior y en la tercera se calcula la tasa de crecimiento anual de los viajees, crean las variables que contiene el año (*year*), el número total de viajes anuales (*total_viajes_anuales*), el número de viajes del año anterior (*previous_year_trips*), y la tasa de crecimiento anual (*annual_growth_rate*).  Finalmente se combinan para producir la vista final. Esta tabla será utilizada para visualizar el comportamiento mediante gráficos.
 
@@ -237,7 +237,7 @@ ORDER BY
 
 #### Vista de dasboard: reto_técnico_Citibike
 
-![Texto alternativo](img/dashboard.png?raw=true)
+![Texto alternativo](images/dashboard.png?raw=true)
 
  ## Resultados 
 
@@ -249,7 +249,8 @@ En cuanto al perfil de los usuarios, el 67.06% son hombres, el 21.42% son mujere
 
 Respecto a la tasa de crecimiento anual de los viajes, se observa un incremento constante desde 2013 hasta 2015. Sin embargo, a partir de 2015, el crecimiento se desacelera y, para 2018, se registra una disminución significativa en el número de viajes diarios en comparación con 2017. A pesar de que el número total de viajes fue relativamente alto entre 2014 y 2017, la tasa de crecimiento anual comenzó a decrecer, lo que sugiere que el sistema pudo haber alcanzado un punto de saturación o que otros factores afectaron negativamente su uso, particularmente en 2018. Este descenso invita a explorar posibles variables que hayan influido en esta caída.
 
-## Elaborado por:
-Natalia Alejandro
+## Elaborado por:  
+
+Natalia Alejandro  
 Agosto 2024
 
