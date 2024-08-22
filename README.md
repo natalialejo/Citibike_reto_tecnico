@@ -20,7 +20,8 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 - La variable *tripduration* se encuentra en segundos, es necesario convertirla a minutos.
 - La variable *tripduration* y *age* contiene datos outliers.
 
- ![Texto alternativo](images/estado_datos.png?raw=true)
+ <img src="images/estado_datos.png" alt="Texto alternativo" width="300"/>
+
 
 ### 2. Análisis exploratorio.
 
