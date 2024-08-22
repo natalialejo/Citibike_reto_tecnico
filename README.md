@@ -111,8 +111,8 @@ GROUP BY
     usertype
 ORDER BY 
     total_trips DESC
-LIMIT 100; --- subscriber (annual member) : 46,917,572 (79.6%)  
-           --- customer (24 pass or 7 day pass user): 6,191,149 (20,4%)
+LIMIT 100; --- subscriber (annual member) : 46917572 (79.6%)  
+           --- customer (24 pass or 7 day pass user): 619149 (20,4%)
 ```
 Para la identificación de la edad es necesaria la variable *birth_year*, se agrupan por rangos las edades y se categorizan por  generación. Existen 42 usuarios con edad +90 años, o sea outliers, por lo que se decide excluirlos:
 
