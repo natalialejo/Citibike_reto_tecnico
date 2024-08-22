@@ -12,7 +12,7 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 - Herramientas: Big Query, Looker Studio.
 - Lenguaje: SQL
 
-### 1.Procesamiento y preparación de de datos
+### 1. Procesamiento y preparación de de datos
 
 - Carga de  base de datos Citi Bike New York City, este conjunto de datos incluye los viajes de Citi Bike desde que Citi Bike se lanzó en septiembre de 2013 y se actualiza diariamente. Cualquier viaje de menos de 60 segundos de duración, los cuales se consideran falsos comienzos: *citibike_trips*
 - Exploración: contiene 58,937,715 datos
@@ -20,13 +20,13 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 - La variable *tripduration* se encuentra en segundos, es necesario convertirla a minutos.
 - La variable *tripduration* y *age* contiene datos outliers.
 
- <img src="images/estado_datos.png" alt="Texto alternativo" width="300"/>
+ <img src="images/estado_datos.png" alt="Texto alternativo" width="500"/>
 
 
-### 2. Análisis exploratorio.
+### 2. Análisis exploratorio
 
-1. * Métricas de uso de un día promedio: 
-    a.** Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
+1. Métricas de uso de un día promedio: 
+    * Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
 
 ``` sql
 WITH daily_trip_counts AS (
@@ -45,7 +45,7 @@ SELECT
 FROM 
   daily_trip_counts; ---32,986.78
 ```
-    b.** Calcular medidas de tendencia central respecto a la duración de un viaje: Se decide tratar los  datos outliers de la variable *tripduration*, considerando solo los datos dentro de 24 horas (1440 minutos), ya que el objetivo es analizar la duración de un viaje en un día promedio. 
+    * Calcular medidas de tendencia central respecto a la duración de un viaje: Se decide tratar los  datos outliers de la variable *tripduration*, considerando solo los datos dentro de 24 horas (1440 minutos), ya que el objetivo es analizar la duración de un viaje en un día promedio. 
 
 ``` sql
 SELECT
