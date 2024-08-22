@@ -1,6 +1,6 @@
 # Citi Bike Trips Data Analysis
 
-Exploración de datos a partir de un dataset sobre el uso de un programa de bicicletas compartidas, realizado en el marco del bootcamp de análisis de datos de Laboratoria
+Exploración de datos a partir de un dataset sobre el uso de un programa de bicicletas compartidas, realizado en el marco del Bootcamp de Análisis de Datos de Laboratoria.
 
  ## Descripción del proyecto 
 
@@ -27,7 +27,7 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 
 - Métricas de uso de un día promedio: 
 
-    - Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
+***Número de viajes que se realizan en promedio:*** utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
 
 ``` sql
 WITH daily_trip_counts AS (
@@ -46,7 +46,7 @@ SELECT
 FROM 
   daily_trip_counts; ---32,986.78
 ```
-* Calcular medidas de tendencia central respecto a la duración de un viaje: Se decide tratar los  datos outliers de la variable *tripduration*, considerando solo los datos dentro de 24 horas (1440 minutos), ya que el objetivo es analizar la duración de un viaje en un día promedio. 
+***Calcular medidas de tendencia central respecto a la duración de un viaje:*** Se decide tratar los  datos outliers de la variable *tripduration*, considerando solo los datos dentro de 24 horas (1440 minutos), ya que el objetivo es analizar la duración de un viaje en un día promedio. 
 
 ``` sql
 SELECT
@@ -64,7 +64,7 @@ WHERE
 
 - Métricas históricas:
 
-* Total de viajes: Filtrando los datos nulos de la variable *starttime* y *stoptime* se obtienen 53,108,721 viajes 
+***Total de viajes:*** Filtrando los datos nulos de la variable *starttime* y *stoptime* se obtienen 53,108,721 viajes 
 
 ``` sql
 SELECT
@@ -75,7 +75,7 @@ WHERE
    starttime IS NOT NULL
    AND stoptime IS NOT NULL;
 ```
-*  Total de viajes por usuarios, según género, edad y/o tipo de subscripción: 
+***Total de viajes por usuarios, según género, edad y/o tipo de subscripción:*** 
 
 ``` sql
     # total trips by gender #
@@ -150,7 +150,7 @@ Se obtiene como resultado estas tablas:
 
 -  Crecimiento del número de viajes diarios a lo largo del tiempo: 
 
-Para este calculo se crean tres tablas temporables mediante `WITH`, en la primera se grupan los datos por fecha (*trip_date*) y calcula el número total de viajes (*daily_trips*) para cada día. Seguido, en la siguiente tabla temporal, utilizando la funcion `LAG` se obtiene el número de viajes del día anterior y en la tercera se calcula la tasa de crecimiento anual de los viajees, crean las variables que contiene el año (*year*), el número total de viajes anuales (*total_viajes_anuales*), el número de viajes del año anterior (*previous_year_trips*), y la tasa de crecimiento anual (*annual_growth_rate*).  Finalmente se combinan para producir la vista final. Esta tabla será utilizada para visualizar el comportamiento mediante gráficos.
+Para este calculo se crean tres tablas temporables mediante la función `WITH`. En la primera, se grupan los datos por fecha (*trip_date*) y se calcula el número total de viajes (*daily_trips*) para cada día. Seguido, en la siguiente tabla temporal, utilizando la funcion `LAG` se obtiene el número de viajes del día anterior y en la tercera tabla se calcula la tasa de crecimiento anual de los viajees, creando las variables que contiene el año (*year*), el número total de viajes anuales (*total_viajes_anuales*), el número de viajes del año anterior (*previous_year_trips*), y la tasa de crecimiento anual (*annual_growth_rate*).Finalmente se combinan para producir la vista final. Esta tabla será utilizada para visualizar el comportamiento mediante gráficos.
 
 ``` sql
 
