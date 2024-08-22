@@ -148,7 +148,7 @@ Se obtiene como resultado estas tablas:
 
 ![Texto alternativo](images/age_range.png?raw=true)
 
--  Crecimiento del número de viajes diarios a lo largo del tiempo: 
+***Crecimiento del número de viajes diarios a lo largo del tiempo:***
 
 Para este calculo se crean tres tablas temporables mediante la función `WITH`. En la primera, se grupan los datos por fecha (*trip_date*) y se calcula el número total de viajes (*daily_trips*) para cada día. Seguido, en la siguiente tabla temporal, utilizando la funcion `LAG` se obtiene el número de viajes del día anterior y en la tercera tabla se calcula la tasa de crecimiento anual de los viajees, creando las variables que contiene el año (*year*), el número total de viajes anuales (*total_viajes_anuales*), el número de viajes del año anterior (*previous_year_trips*), y la tasa de crecimiento anual (*annual_growth_rate*).Finalmente se combinan para producir la vista final. Esta tabla será utilizada para visualizar el comportamiento mediante gráficos.
 
@@ -218,9 +218,9 @@ LEFT JOIN
 ORDER BY
   d.trip_date;
 ```
--  Medidas adicionales:
+- Medidas adicionales:
 
-* Se identifican las estaciones donde es más popular inicar y finalizar los viajes:
+Se identifican las estaciones donde es más popular inicar y finalizar los viajes:
 
 ``` sql
 SELECT 
@@ -247,7 +247,7 @@ ORDER BY
 
  ## Resultados 
 
- Citi Bike es el sistema de bicicletas compartidas de Nueva York, con miles de bicicletas distribuidas en cientos de estaciones, disponibles las 24 horas del día, todos los días del año. Los usuarios pueden desbloquear una bicicleta en cualquier estación y viajar a su destino preferido, eligiendo entre pases de 24 horas, 7 días o una suscripción anual.
+Citi Bike es el sistema de bicicletas compartidas de Nueva York, con miles de bicicletas distribuidas en cientos de estaciones, disponibles las 24 horas del día, todos los días del año. Los usuarios pueden desbloquear una bicicleta en cualquier estación y viajar a su destino preferido, eligiendo entre pases de 24 horas, 7 días o una suscripción anual.
 
 Desde su lanzamiento en 2013, la base de datos de Citi Bike ha registrado más de 53 millones de viajes. En promedio, se realizan 32,986 viajes diarios, con una duración máxima de 1,439 minutos (casi un día) y una mínima de 1 minuto. La duración promedio de los viajes es de 14.6 minutos.
 
