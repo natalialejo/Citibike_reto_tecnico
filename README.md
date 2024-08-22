@@ -241,7 +241,7 @@ ORDER BY
 - Se conectan las tablas creadas con las variables de interés para la presentación.
 - Gráficos: se utilizan scorecards, gráficos de barra, de pastel, tablas y gráficos de linea.
 
-##### Vista de dasboard: reto_técnico_Citibike
+##### Vista de Dashboard: reto_técnico_Citibike
 
 ![Texto alternativo](images/dashboard.png?raw=true)
 
