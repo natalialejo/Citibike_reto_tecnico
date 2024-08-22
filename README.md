@@ -27,7 +27,7 @@ Exploración de datos a partir de un dataset sobre el uso de un programa de bici
 
 - Métricas de uso de un día promedio: 
 
-* Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
+    - Número de viajes que se realizan en promedio: utilizando la funcion `DATE`se convierte la variable *starttime* en fecha y luego se calcula el promedio de viajes.
 
 ``` sql
 WITH daily_trip_counts AS (
